@@ -46,6 +46,7 @@ a {
 }
 html {
 	overflow-y: scroll;
+	overflow-x:hidden;
 }
 button {
 	border: none;
