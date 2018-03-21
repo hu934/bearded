@@ -9,8 +9,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?php bloginfo('name'); ?><?php wp_title('|', true, ''); ?></title>
 
+		 <!-- Bootstrap -->
+		 <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/newweb/css/bootstrap.css">
+		 <!-- mobile -->
+		 <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/newweb/css/res.css">
+
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/ztime/css/global.css" type="text/css" />
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/ztime/css/style.css" type="text/css"/>
+
 
 		<?php //wp_head();?>
 
@@ -20,27 +26,35 @@
 <?php if(qtranxf_getLanguage() == "zh") : $imgDir="tw"?><?php endif;?>
 <?php if(qtranxf_getLanguage() == "ZH") : $imgDir="zh"?><?php endif;?>
 
-	<body>
+	<body class="new-page">
 		<header id="head">
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default shrink-nav">
+			<div class="container">
 				<div class="navbar-header">
-					<?php
-                        wp_nav_menu(array(
-                            'menu' => 'loginMenu',
-                            'container' => false,
-                            'menu_class' => 'navbar-left'
-                        ));
-                    ?>
+				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				  <div class="nav-header-right" style="display:none;">
+					<a href="/cart/"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/icon_shopping.png" alt="shop" /></a>
+					<a href="/login/"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/icon_mine.png" alt="shop" /></a>
+				  </div>
+				  <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="true" style="">
 					<?php
                         wp_nav_menu(array(
                             'menu' => 'languageMenu',
                             'container' => false,
-                            'menu_class' => 'navbar-right',
+                            'menu_class' => 'nav navbar-nav navbar-right',
                         ));
                     ?>
+					<?php
+                        wp_nav_menu(array(
+                            'menu' => 'loginMenu',
+                            'container' => false,
+                            'menu_class' => 'nav navbar-nav'
+                        ));
+                    ?>
+					
 
 					<!--购物车 开始-->
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-right shop-ul">
                         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><?php echo WC()->cart->get_cart_total(); ?> | <?php echo WC()->cart->get_cart_contents_count(); ?><span class="caret"></span></a>
                              <ul class="dropdown-menu" role="menu" <?php if ( WC()->cart->get_cart_contents_count() >= 2 ) {?>style="height:400px; overflow-y: auto;"<?php } ?>>
                                             <?php
@@ -123,14 +137,15 @@
                         wp_nav_menu(array(
                             'menu' => 'rightMenu',
                             'container' => false,
-                            'menu_class' => 'navbar-right',
+                            'menu_class' => 'nav navbar-nav  navbar-right',
                         ));
                     ?>
 				</div>
+				</div>
 			</nav>
 
-			<div class="container">
-				<div class="row">
+			<div class="containers">
+				<div class="row video-banner">
 					<span><img class="studyenglish" src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/text_1.png"/></span>
 					<!--<div class="col-md-12 text-center">
 						<?php the_content(); ?>
@@ -141,10 +156,8 @@
 					<div class="row-div">
 					
 					<div class="bg-div">
-						<video id="video06" width="600" height="400" class="video" autoplay="autoplay" preload="none" poster="/wp-content/uploads/abc_magician-04.jpg" controls="" controlslist="nodownload">
-							<source src="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/abc_magician.mp4" type="video/mp4">
-							<source src="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/abc_magician.mkv" type="video/mkv">
-							<source src="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/abc_magician.ogv" type="video/ogv">
+						<video id="video06" width="80%" class="video" autoplay="autoplay" preload="none" poster="https://www.bee4two.cn/wp-content/uploads/home1.jpg" controls="" controlslist="nodownload">
+							<source src="https://www.bee4two.cn/wp-content/uploads/Homepage_Astronaut-1.mp4" type="video/mp4">
 							Your browser does not support HTML5 video.
 						</video>
 					</div>
@@ -170,39 +183,50 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		</header>
 		<section class="vide-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<span class="title-img"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_1.png"/></span>
+						<p class="txt">
+							<?php if(qtranxf_getLanguage() == "en") : ?>Yes, give Your Child a Starring Role in an eBook or Paper Book!<?php endif;?>
+							<?php if(qtranxf_getLanguage() == "zh") : ?>是的，給你的孩子在電子書或紙本書中擔任主角！<?php endif;?>
+							<?php if(qtranxf_getLanguage() == "ZH") : ?>是的，给你的孩子在电子书中或纸本书中担任主角<?php endif;?>
+						</p>
+					</div>
+				</div>
+			
 			<div class="row">
-				<span><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_1.png"/></span>
-				<p class="txt">
-					<?php if(qtranxf_getLanguage() == "en") : ?>Yes, give Your Child a Starring Role in an eBook or Paper Book!<?php endif;?>
-					<?php if(qtranxf_getLanguage() == "zh") : ?>是的，給你的孩子在電子書或紙本書中擔任主角！<?php endif;?>
-					<?php if(qtranxf_getLanguage() == "ZH") : ?>是的，给你的孩子在电子书中或纸本书中担任主角<?php endif;?>
-				</p>
-			</div>
-			<div class="row-div">
 				<div class="bg-div-zj"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/img_2.png"/></div>
+			</div>
 			</div>
 		</section>
 		<section class="vide-inner">
+		<div class="container">
 			<div class="row">
-				<span><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_2.png"/></span>
+			<div class="col-md-12 text-center">
+				<span class="title-img"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_2.png"/></span>
 				<p class="txt">
 					<?php if(qtranxf_getLanguage() == "en") : ?>For Chinese Children aged from 2 to 8 <br> We help your child learn to Speak English and Read English stories<?php endif;?>
 					<?php if(qtranxf_getLanguage() == "zh") : ?>專為2至8歲的中國兒童而設，幫助你的孩子學習英語發音及閱讀英文故事<?php endif;?>
 					<?php if(qtranxf_getLanguage() == "ZH") : ?>专为2至8岁的中国儿童而设，帮助你的孩子学习英语发音及阅读英文故事<?php endif;?>
 				</p>
 			</div>
-			<div class="row-div">
-				<div class=""><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/bg_2.png"/></div>
+			</div>
+			<div class="row">
+				<div class="bg-div-zj-two"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/bg_2.png"/></div>
 				<div class="leftbg-two"></div>
+			</div>
 			</div>
 		</section>
 		<section class="vide-inner">
+		<div class="container">
 			<div class="row">
-				<span><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_3.png"/></span>
+				<span class="title-img text-center"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_3.png"/></span>
 			</div>
-			<div class="row-div">
+			<div class="row" style="position:relative">
 				<div class="push-bottom">
 					<div class="col-left">
 						<div class="push-top">
@@ -238,7 +262,7 @@
 					</div>
 					<div class="col-center">
 						<div class="video-center">
-							<video preload="none" height="304" controls="" controlslist="nodownload" style="width:100%" id="vdHotPress" class="video-in" poster="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/Illustration.gif">
+							<video preload="none" controls="" controlslist="nodownload" style="width:100%" id="vdHotPress" class="video-in" poster="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/Illustration.gif">
                                 <source src="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/Illustration.mp4" type="video/mp4">
                                 <source src="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/Illustration.mkv" type="video/mkv">
                                 <source src="https://www.bee4two.cn/wp-content/themes/bearded-master/assets/video/Illustration.ovg" type="video/ovg">
@@ -294,13 +318,16 @@
 				</div>
 				<div class="leftbg-thir"></div>
 			</div>
+			</div>
 		</section>
 		<section class="vide-inner">
+			<div class="container">
 			<div class="row">
-				<span><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_4.png"/></span>
+				<span class="title-img text-center"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/<?php echo $imgDir;?>/title_4.png"/></span>
 			</div>
-			<div class="row-div">
+			<div class="row">
 				<div class="bg-div-aboutus">
+				<div class="col-md-12 text-center">
 					<?php if(qtranxf_getLanguage() == "en") : ?>
 						<h3 class="one-h3">New Excitement in Reading</h3>
 						<p>Children love to play, and most of all, they love to role-play. Think of the excitement of seeing themselves in books and videos. Think of the new world of learning when personalised books become the norm. All these are happening now — for the first time, your kid is not just reading a story. Your kid is the story!</p>
@@ -335,10 +362,13 @@
 						<p>* 英语句式和其他英文语法的运用隐藏在他们最喜欢的故事中，这种潜移默化的学习模式，令他们学习英文语法时得到快乐，有效扶助及提升他们日后的语言学习能力。</p>
 					<?php endif?>
 				</div>
+				</div>
+			</div>
 			</div>
 		</section>
 		<footer class="foot-inner">
 			<div class="footer-div">
+			<div class="container">
 				<div class="row fo-row">
 					<ul class="fo-nav fonav-one">
 						<?php if(qtranxf_getLanguage() == "en") : ?>
@@ -376,7 +406,8 @@
 					<a href="#head" class="back-top"></a>
 				</div>
 			</div>
-			<div class="fo-bottom"><p>Copyright © 2017 Bee4two. 深圳前海保保软件科技有限公司. 粤ICP备17041474号-1 </p></div>
+			</div>
+			<div class="container"><div class="fo-bottom row"><p>Copyright © 2017 Bee4two. 深圳前海保保软件科技有限公司. 粤ICP备17041474号-1 </p></div></div>
 		</footer>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
