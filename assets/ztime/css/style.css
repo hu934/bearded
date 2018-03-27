@@ -1,4 +1,4 @@
-﻿html,body{
+html,body{
     width:100%;
     height: auto;
 }
@@ -89,7 +89,7 @@ header .navbar-default, header .dropdown-menu, .shrink-nav, #menu-home .sub-menu
 }
 header .navbar-right .dropdown .dropdown-menu dl dd,
 header .navbar-right .dropdown .dropdown-menu dl dt{
-	color:#03ACDA;
+	color:#fff;
 	line-height: 1.42857143;
 }
 dt{
@@ -198,6 +198,14 @@ dt{
 .bg-div{
     padding: 83px 0;
 }
+.bg-div-zj{
+    padding: 85px 0;
+}
+.book-zj{
+    padding: 26px 0;
+    font-size: 26px;
+    color: #03ACDA;
+}
 .bg-div video{
     vertical-align: middle;
 }
@@ -235,11 +243,11 @@ dt{
 }
 .one{
 	left: 330px;
-	background: #fff url(../img/icon_upload.png);
+	background: #fff url(../img/icon_Photograph.png);
 }
 .two{
 	left: 545px;
-	background: #fff url(../img/icon_Photograph.png);
+	background: #fff url(../img/icon_upload.png);
 }
 .thir{
 	left: 755px;
@@ -253,6 +261,7 @@ dt{
 	line-height: 1;
 }
 .train-div a{
+	cursor: default;
 	background:url(../img/hongqi.png);
     width: 78px;
     height: 84px;
@@ -305,14 +314,18 @@ dt{
     font-weight: 100;
     margin-bottom: 10px;
     display: block;
-    word-break: break-all;
+    word-break: keep-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
     width: 263px;
 }
 .push-top p,
 .push-bot p{
     font-size: 14px;
     color: #03ACDA;
-    word-break: break-all;
+    word-break: keep-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
     width: 260px;
 }
 .push-bottom .col-left span,
@@ -457,6 +470,12 @@ dt{
 .video-banner{
 	padding: 0 15px;
 }
+.swiper-button-prev{
+    left: 60px;
+}
+.swiper-button-next{
+	right:50px;
+}
 @media (max-width: 980px) {
 .nav-header-right{
     float: right;	
@@ -477,7 +496,19 @@ dt{
     background-size: 100% 100%;
     background-position: center;
 }
-
+.bg-div-zj{
+	padding: 75px 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+}
+.bg-div-zj img{
+    max-width: 80%;
+}
+.bg-div-zj .book-zj{
+    font-size: 22px;
+}
 .bg-div-aboutus{
 	background:#03ACDA url(../img/bg_aboutus.png);
     width: 100%;
@@ -514,11 +545,11 @@ dt{
 }
 .one{
     left: 190px;
-    background: url(../img/icon_upload2.png);
+    background: url(../img/icon_photograph3.png);
 }
 .two {
     left: 340PX;
-    background: url(../img/icon_Photograph3.png);
+    background: url(../img/icon_upload2.png);
 }
 .thir {
     left: 490PX;
@@ -610,9 +641,14 @@ dt{
 	margin: 0 15px;
 	color:#008AAF;
 }
-#menu-loginmenu,.shop-ul{
+.shop-ul{
 	display:none;
-	
+}
+.swiper-button-prev{
+    left: 40px;
+}
+.swiper-button-next{
+	right:40px;
 }
 }
 
@@ -658,6 +694,16 @@ dt{
     background-size: 100% 100%;
     background-position: center;
 }
+.bg-div-zj .book-zj{
+    font-size:18px;
+}
+.bg-div-zj{
+	padding: 40px 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+}
 .bg-div-aboutus{
     padding: 24px 20px 70px;
 }
@@ -680,6 +726,15 @@ dt{
 }
 .thir {
     left: 260PX;
+}
+.swiper-button-prev{
+    left: 11px;
+}
+.swiper-button-next{
+	right:11px;
+}
+.swiper-button-next, .swiper-button-prev{
+    background-size: 50% 50%;
 }
 }
 
@@ -729,10 +784,10 @@ dt{
 	color: #fff;
 }
 .dropdown-menu li a{
-	color: #03ACDA;
+	color: #fff;
 }
 .dropdown-menu .prod-class{
-	border-bottom: 1px solid #03ACDA;
+	border-bottom: 1px solid #fff;
 	padding-bottom: 15px;
   	padding-top: 10px;
 	margin-bottom: 15px;
