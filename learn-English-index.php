@@ -8,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?php bloginfo('name'); ?><?php wp_title('|', true, ''); ?></title>
-
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/assets/ztime/css/swiper.min.css">
 		 <!-- Bootstrap -->
 		 <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/newweb/css/bootstrap.css">
 		 <!-- mobile -->
@@ -34,7 +34,7 @@
 				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 				  <div class="nav-header-right" style="display:none;">
 					<a href="/cart/"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/icon_shopping.png" alt="shop" /></a>
-					<a href="/login/"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/icon_mine.png" alt="shop" /></a>
+					
 				  </div>
 				  <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="true" style="">
 					<?php
@@ -156,10 +156,14 @@
 					<div class="row-div">
 					
 					<div class="bg-div">
-						<video id="video06" width="80%" class="video" autoplay="autoplay" preload="none" poster="https://www.bee4two.cn/wp-content/uploads/home1.jpg" controls="" controlslist="nodownload">
-							<source src="https://www.bee4two.cn/wp-content/uploads/Homepage_Astronaut-1.mp4" type="video/mp4">
-							Your browser does not support HTML5 video.
-						</video>
+					    <div class="swiper-container" >
+							<div class="swiper-wrapper">
+								<div class="swiper-slide"><video width="80%" class="video" src="https://www.bee4two.cn/wp-content/uploads/Homepage_Astronaut-1.mp4" controls poster="https://www.bee4two.cn/wp-content/uploads/home1.jpg"></div>
+								<div class="swiper-slide"><video width="80%" class="video" src="https://www.bee4two.cn/wp-content/uploads/HomePage_RollerCoaster.mp4" controls poster="https://www.bee4two.cn/wp-content/uploads/video-bg5-1.jpg"></div>
+							</div>
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div>
+						</div>
 					</div>
 
 					<div class="train">
@@ -199,7 +203,14 @@
 				</div>
 			
 			<div class="row">
-				<div class="bg-div-zj"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/img_2.png"/></div>
+				<div class="bg-div-zj"><img src="<?php echo get_template_directory_uri();?>/assets/ztime/img/video-bg3.jpg"/>
+				<div class="book-zj">
+					<?php if(qtranxf_getLanguage() == "en") : ?>Our Prices start at 19.50 RMB<?php endif;?>
+					<?php if(qtranxf_getLanguage() == "zh") : ?>我們的價格低至19.5元人民幣<?php endif;?>
+					<?php if(qtranxf_getLanguage() == "ZH") : ?>我们的价格低至19.5RMB<?php endif;?>
+				</div>
+				</div>
+				</div>
 			</div>
 			</div>
 		</section>
@@ -412,6 +423,7 @@
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="<?php echo get_template_directory_uri();?>/assets/newweb/js/jquery.js"></script>
+		<script src="<?php echo get_template_directory_uri();?>/assets/ztime/js/swiper.min.js"></script>
 		<script src="<?php echo get_template_directory_uri();?>/assets/ztime/js/jquery.cookie.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<?php echo get_template_directory_uri();?>/assets/newweb/js/bootstrap.js"></script>
@@ -427,6 +439,16 @@
 				});
 				initScroll();
 				bindLink();
+				$("video").bind("play",function(evt){
+					videoPlayHandle(evt.target);
+				});
+				    var mySwiper = new Swiper('.swiper-container', {
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+						},
+						loop: true,
+					});
 			});
 			
 			/*初始滚动条位置*/
@@ -457,7 +479,14 @@
 					});
 				});
 			}
-
+			
+			function videoPlayHandle(target){
+				$("video").each(function(index,ele){
+					if($(ele)[0] != $(target)[0]){
+						$(ele)[0].pause();
+					}
+				});
+			}
 		</script>
 	</body>
 
