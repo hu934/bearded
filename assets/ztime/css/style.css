@@ -1,4 +1,4 @@
-﻿html,body{
+html,body{
     width:100%;
     height: auto;
 }
@@ -261,7 +261,7 @@ dt{
 	line-height: 1;
 }
 .train-div a{
-    cursor: pointer;
+	cursor: default;
 	background:url(../img/hongqi.png);
     width: 78px;
     height: 84px;
